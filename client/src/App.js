@@ -40,6 +40,11 @@ function App() {
     }
   }
 
+  const toggleAuthenticated = (value, user) => {
+    updateAuthenticated(value)
+    updateUser(user)
+  }
+
   return (
     <div className="App">
       {pageLoading ? (
