@@ -110,8 +110,19 @@ function App() {
           <ProtectedRoute
             authenticated={authenticated}
             path='/profile'
-            component={() => (
+            component={(props) => (
               <Profile
+                {...props}
+                toggleAuthenticated={toggleAuthenticated}
+                currentUser={currentUser}
+                authenticated={authenticated}/>
+            )}
+          />
+          <ProtectedRoute
+            authenticated={authenticated}
+            path='/update/profile'
+            component={(props) => (
+              <UpdateUser
                 {...props}
                 toggleAuthenticated={toggleAuthenticated}
                 currentUser={currentUser}
