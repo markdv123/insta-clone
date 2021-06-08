@@ -11,21 +11,42 @@ import UpdateUser from './pages/UpdateUser'
 import UpdatePost from './pages/UpdatePost'
 import ViewPost from './pages/ViewPost'
 import ViewUser from './pages/ViewUser'
+import { __CheckSession } from './services/UserServices'
 import './styles/App.css'
 
 function App() {
   const [pageLoading, updatePageLoading] = useState(true)
+  const [authenticated, updateAuthenticated] = useState(false)
+  const [currentUser, updateUser] = useState(null)
 
   useEffect(() => {
     updatePageLoading(false)
+    verifyToken()
   }, [])
+
+  const verifyToken = async () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      try {
+        const session = await __CheckSession()
+        updateUser(session.user)
+        updateAuthenticated(true)
+        props.history.push(window.location.pathname)
+      } catch (error) {
+        updateUser(null)
+        updateAuthenticated(false)
+        localStorage.clear()
+      }
+    }
+  }
+
   return (
     <div className="App">
       {pageLoading ? (
         <h3>Loading...</h3>
       ) : (
         <Switch>
-          
+
         </Switch>
       )}
     </div>
