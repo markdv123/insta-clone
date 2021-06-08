@@ -120,6 +120,17 @@ function App() {
           />
           <ProtectedRoute
             authenticated={authenticated}
+            path='/upload'
+            component={(props) => (
+              <CreatePost
+                {...props}
+                toggleAuthenticated={toggleAuthenticated}
+                currentUser={currentUser}
+                authenticated={authenticated}/>
+            )}
+          />
+          <ProtectedRoute
+            authenticated={authenticated}
             path='/update/user/:user_id'
             component={(props) => (
               <UpdateUser
