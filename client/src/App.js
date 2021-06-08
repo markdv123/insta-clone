@@ -51,7 +51,16 @@ function App() {
         <h3>Loading...</h3>
       ) : (
         <Switch>
-
+          <Route 
+            exact path="/"
+            component={()=> (
+              <Home 
+                currentUser={currentUser}
+                authenticated={authenticated}
+                toggleAuthenticated={toggleAuthenticated}
+                />
+            )}
+          />
         </Switch>
       )}
     </div>
