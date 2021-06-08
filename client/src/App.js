@@ -14,9 +14,20 @@ import ViewUser from './pages/ViewUser'
 import './styles/App.css'
 
 function App() {
+  const [pageLoading, updatePageLoading] = useState(true)
+
+  useEffect(() => {
+    updatePageLoading(false)
+  }, [])
   return (
     <div className="App">
-      
+      {pageLoading ? (
+        <h3>Loading...</h3>
+      ) : (
+        <Switch>
+          
+        </Switch>
+      )}
     </div>
   );
 }
