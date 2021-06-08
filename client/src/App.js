@@ -81,6 +81,16 @@ function App() {
                 authenticated={authenticated}/>
             )}
           />
+          <Route
+            path='/login'
+            component={(props) => (
+              <SignIn
+                {...props}
+                toggleAuthenticated={toggleAuthenticated}
+                currentUser={currentUser}
+                authenticated={authenticated}/>
+            )}
+          />
         </Switch>
       )}
     </div>
