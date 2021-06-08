@@ -53,7 +53,7 @@ function App() {
         <Switch>
           <Route 
             exact path="/"
-            component={()=> (
+            component={(props)=> (
               <Home 
                 currentUser={currentUser}
                 authenticated={authenticated}
@@ -63,8 +63,18 @@ function App() {
           />
           <Route
             path='/discover'
-            component={() => (
+            component={(props) => (
               <Discover
+                {...props}
+                toggleAuthenticated={toggleAuthenticated}
+                currentUser={currentUser}
+                authenticated={authenticated}/>
+            )}
+          />
+          <Route
+            path='/register'
+            component={(props) => (
+              <SignUp
                 {...props}
                 toggleAuthenticated={toggleAuthenticated}
                 currentUser={currentUser}
