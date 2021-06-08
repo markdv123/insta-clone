@@ -61,6 +61,16 @@ function App() {
                 />
             )}
           />
+          <Route
+            path='/discover'
+            component={() => (
+              <Discover
+                {...props}
+                toggleAuthenticated={toggleAuthenticated}
+                currentUser={currentUser}
+                authenticated={authenticated}/>
+            )}
+          />
         </Switch>
       )}
     </div>
