@@ -120,9 +120,20 @@ function App() {
           />
           <ProtectedRoute
             authenticated={authenticated}
-            path='/update/profile'
+            path='/update/user/:user_id'
             component={(props) => (
               <UpdateUser
+                {...props}
+                toggleAuthenticated={toggleAuthenticated}
+                currentUser={currentUser}
+                authenticated={authenticated}/>
+            )}
+          />
+          <ProtectedRoute
+            authenticated={authenticated}
+            path='/update/post/:post_id'
+            component={(props) => (
+              <UpdatePost
                 {...props}
                 toggleAuthenticated={toggleAuthenticated}
                 currentUser={currentUser}
