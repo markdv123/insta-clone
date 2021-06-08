@@ -98,6 +98,15 @@ function App() {
                 authenticated={authenticated}/>
             )}
           />
+          <Route
+            path='/users/:user_id'
+            component={(props) => (
+              <ViewUser
+                {...props}
+                currentUser={currentUser}
+                authenticated={authenticated}/>
+            )}
+          />
         </Switch>
       )}
     </div>
