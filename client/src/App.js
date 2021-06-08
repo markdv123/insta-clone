@@ -57,7 +57,6 @@ function App() {
               <Home 
                 currentUser={currentUser}
                 authenticated={authenticated}
-                toggleAuthenticated={toggleAuthenticated}
                 />
             )}
           />
@@ -66,7 +65,6 @@ function App() {
             component={(props) => (
               <Discover
                 {...props}
-                toggleAuthenticated={toggleAuthenticated}
                 currentUser={currentUser}
                 authenticated={authenticated}/>
             )}
@@ -87,6 +85,15 @@ function App() {
               <SignIn
                 {...props}
                 toggleAuthenticated={toggleAuthenticated}
+                currentUser={currentUser}
+                authenticated={authenticated}/>
+            )}
+          />
+          <Route
+            path='/posts/:post_id'
+            component={(props) => (
+              <ViewPost
+                {...props}
                 currentUser={currentUser}
                 authenticated={authenticated}/>
             )}
