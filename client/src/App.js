@@ -107,6 +107,17 @@ function App() {
                 authenticated={authenticated}/>
             )}
           />
+          <ProtectedRoute
+            authenticated={authenticated}
+            path='/profile'
+            component={() => (
+              <Profile
+                {...props}
+                toggleAuthenticated={toggleAuthenticated}
+                currentUser={currentUser}
+                authenticated={authenticated}/>
+            )}
+          />
         </Switch>
       )}
     </div>
