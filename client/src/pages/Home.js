@@ -10,6 +10,7 @@ const Home = (props) => {
                 {...props}
                 currentUser={props.currentUser}
             />
+            <h1>Home</h1>
             <Footer/>
         </div>
     )
